@@ -258,8 +258,21 @@ create env named opencv
 
 - `sudo apt install linux-headers-$(uname -r)`
 
-### 4.7 clash verge
+### 4.9 github cli
 
-- `apt install clash-verge_1.4.2_amd64.deb`
+```shell
+type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+```
+
+> [github](https://github.com/cli/cli/blob/trunk/docs/install_linux.md) - cli dosc on linux
+
+### 4.10 clash verge
+
+- `sudo apt install clash-verge_1.4.2_amd64.deb`
 
 > [clash](https://github.com/clash-verge-rev/clash-verge-rev) - clash on linux
