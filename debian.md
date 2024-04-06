@@ -203,8 +203,7 @@ rm -f packages.microsoft.gpg
 
 ### 4.6 latex
 
-- `sudo apt install texlive-latex-base`
-- `sudo apt install texlive-lang-english texlive-lang-chinese`
+- `sudo apt install texlive-full`
 
 ### 4.7 Miniconda
 
@@ -276,3 +275,36 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 - `sudo apt install clash-verge_1.4.2_amd64.deb`
 
 > [clash](https://github.com/clash-verge-rev/clash-verge-rev) - clash on linux
+
+### 4.11 Jekyll
+[Template of Jekyll Theme - Minimal Mistakes](https://github.com/mmistakes/mm-github-pages-starter)
+
+- username.github.io
+
+### 4.11.1 test local
+```
+@_config.yml
++ theme: "minimal-mistakes-jekyll"
++ # remote_theme: "mmistakes/minimal-mistakes"
++ github: []
+
+- # theme: "minimal-mistakes-jekyll"
+- remote_theme: "mmistakes/minimal-mistakes"
+
+@Gemfile
++ gem "minimal-mistakes-jekyll"
++ gem "webrick"
+```
+
+- `sudo apt install ruby-full build-essential zlib1g-dev`
+```shell
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+- `gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/`
+- `gem install jekyll bundler`
+- `bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems`
+- `bundle install`
+- `bundle exec jekyll serve`
