@@ -84,11 +84,9 @@ Laptop: ASUS x550j
 - continue to reboot
 - remove USB
 
-## 3. (Skip) Set personal config
+## 3. et personal config
 
 <details>
-<summary>Show</summary>
-welcome page, just skip.
 
 ### 3.1 settings
 
@@ -168,6 +166,8 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 
 ### 4.3 ibus
 
+<details>
+
 ibus-libpinyin
 
 - `sudo apt install ibus-libpinyin`
@@ -176,6 +176,19 @@ ibus-libpinyin
 - `Win` > Settings
   - Settings > keyboard > input source + > other > chinese pinyin
 - `Win` + `Space` change chinese input
+</details>
+
+### 4.3 fcitx5 && flypy
+
+[小鹤音形](https://flypy.com/)
+
+- `sudo apt install fcitx5 fcitx5-rime rime-data-double-pinyin`
+- `wget http://ys-n.ysepan.com/116124318/319108762/h4954374733QJITGvujH81/%E5%B0%8F%E9%B9%A4%E9%9F%B3%E5%BD%A2%E2%80%9C%E9%BC%A0%E9%A1%BB%E7%AE%A1%E2%80%9Dfor%20macOS.zip -O flypy.zip`
+- `file-roller --extract-to=. flypy.zip`
+- `sudo cp -r "小鹤音形Rime平台鼠须管for macOS"/rime/* /usr/share/rime-data/ && cd /usr/share/rime-data && sudo rime_deployer --add-schema luna_pinyin_simp double_pinyin_flypy`
+- `fcitx5 remote -r`
+- press `Ctrl`+`Space` start && press `F4` select
+
 
 ### 4.4 vim
 
@@ -194,7 +207,7 @@ rm -f packages.microsoft.gpg
 ```
 
 - `chmod u+x ~/Desktop/run`
-- `~/Desktop/run
+- `~/Desktop/run`
 - `sudo apt install apt-transport-https`
 - `sudo apt update`
 - `sudo apt install code`
@@ -206,6 +219,8 @@ rm -f packages.microsoft.gpg
 - `sudo apt install texlive-full`
 
 ### 4.7 Miniconda
+
+<details>
 
 - `mkdir -p ~/miniconda3`
 - `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh`
@@ -252,6 +267,14 @@ create env named opencv
 - `conda create -n opencv`
 - `conda activate opencv`
 - `(opencv) aiolia@debian:~$`
+
+</details>
+
+### 4.7 python
+
+- `python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip`
+- `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
+- `mkdir .venv | cd .venv | python -m venv .`
 
 ### 4.8 driver
 
